@@ -1,0 +1,31 @@
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss} [%level] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/latestlog-${%d{dd-MM-yyyy-HH-mm-ss}}.log</file>
+        <encoder>
+            <pattern>%d{HH:mm:ss} [%level] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="debug">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </root>
+
+    <logger name="com.example" level="info">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </logger>
+
+    <conversionRule conversionWord="clr" converterClass="org.slf4j.helpers.MessageFormatter$ThrowableFormatStrategy"/>
+    <conversionRule conversionWord="highlight" converterClass="org.slf4j.helpers.MessageFormatter$HighlightingConverter"/>
+    <highlight level="info" foreground="BLUE"/>
+    <highlight level="warn" foreground="YELLOW"/>
+    <highlight level="error" foreground="RED"/>
+    <highlight level="debug" foreground="GREY"/>
+</configuration>

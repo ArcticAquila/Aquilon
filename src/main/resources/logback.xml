@@ -1,26 +1,23 @@
 <configuration>
+    <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{HH:mm:ss} [%level] %msg%n</pattern>
+            <pattern>[%level] [%d{HH:mm:ss}] %msg%n</pattern>
         </encoder>
     </appender>
 
     <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-        <file>logs/latestlog-${%d{dd-MM-yyyy-HH-mm-ss}}.log</file>
+        <file>logs/${%d{dd-MM-yyyy-HH-mm-ss}}.log</file>
         <encoder>
-            <pattern>%d{HH:mm:ss} [%level] %msg%n</pattern>
+            <pattern>[%level] %d{HH:mm:ss} %msg%n</pattern>
         </encoder>
     </appender>
 
-    <root level="debug">
+    <root level="INFO">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FILE"/>
     </root>
-
-    <logger name="com.example" level="info">
-        <appender-ref ref="CONSOLE"/>
-        <appender-ref ref="FILE"/>
-    </logger>
 
     <conversionRule conversionWord="clr" converterClass="org.slf4j.helpers.MessageFormatter$ThrowableFormatStrategy"/>
     <conversionRule conversionWord="highlight" converterClass="org.slf4j.helpers.MessageFormatter$HighlightingConverter"/>

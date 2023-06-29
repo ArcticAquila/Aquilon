@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "org.aquilon"
-version = "1.0.0"
+version = "1.0.1"
 
 repositories {
     mavenCentral()
@@ -21,7 +21,6 @@ dependencies {
     implementation("net.dv8tion:JDA:5.0.0-beta.11")
 
     // Adding SLF4J Library
-    implementation("org.slf4j:slf4j-simple:2.0.7")
     implementation("org.slf4j:slf4j-api:2.0.7")
     implementation("ch.qos.logback:logback-classic:1.4.8")
 
@@ -42,7 +41,7 @@ application {
 
 // Configure the Shadow JAR task
 tasks.named<ShadowJar>("shadowJar") {
-    archiveFileName.set("Aquilon-$version.jar")
+    archiveFileName.set("Aquilon-${project.version}.jar")
     destinationDirectory.set(file("build/libs"))
 
     // Optionally, set the main class for the JAR manifest

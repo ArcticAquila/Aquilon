@@ -3,12 +3,14 @@
 
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>[%level] [%d{HH:mm:ss}] %msg%n</pattern>
+            <pattern>%highlight([%level]) [%d{HH:mm:ss}] %msg%n</pattern>
         </encoder>
     </appender>
 
-    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-        <file>logs/%d{dd-MM-yyyy-HH-mm-ss}.log</file>
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
         <encoder>
             <pattern>[%level] %d{HH:mm:ss} %msg%n</pattern>
         </encoder>
@@ -18,11 +20,4 @@
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FILE"/>
     </root>
-
-    <conversionRule conversionWord="clr" converterClass="org.slf4j.helpers.MessageFormatter$ThrowableFormatStrategy"/>
-    <conversionRule conversionWord="highlight" converterClass="org.slf4j.helpers.MessageFormatter$HighlightingConverter"/>
-    <highlight level="info" foreground="BLUE"/>
-    <highlight level="warn" foreground="YELLOW"/>
-    <highlight level="error" foreground="RED"/>
-    <highlight level="debug" foreground="GREY"/>
 </configuration>

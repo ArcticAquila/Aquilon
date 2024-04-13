@@ -21,7 +21,7 @@ dependencies {
     implementation("net.dv8tion:JDA:5.0.0-beta.11")
 
     // Adding SLF4J Library
-    implementation("org.slf4j:slf4j-api:2.0.7")
+    implementation("org.slf4j:slf4j-api:2.0.13")
     implementation("ch.qos.logback:logback-classic:1.4.8")
 
     implementation("io.github.cdimascio:dotenv-kotlin:6.4.1")

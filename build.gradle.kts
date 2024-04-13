@@ -18,7 +18,7 @@ dependencies {
     testImplementation(kotlin("test"))
 
     // Adding JDA Library
-    implementation("net.dv8tion:JDA:5.0.0-beta.11")
+    implementation("net.dv8tion:JDA:5.0.0-beta.22")
 
     // Adding SLF4J Library
     implementation("org.slf4j:slf4j-api:2.0.13")
